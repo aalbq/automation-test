@@ -1,2 +1,2 @@
 # automation-test
-API and UI test automation
+Interzone API test automation.
