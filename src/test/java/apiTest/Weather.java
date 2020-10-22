@@ -14,16 +14,16 @@ import org.junit.Test;
 import apitest.InterzoidWeather;
 
 public class Weather {
-	
+
 	InterzoidWeather weatherApi;
-	
+
 	@Before
 	public void prepareTests() {
 		this.weatherApi = new InterzoidWeather();
 	}
 
 	@After
-	public void end() {
+	public void finalizeTests() {
 
 	}
 
@@ -33,14 +33,14 @@ public class Weather {
 		assertEquals(200, weatherApi.getStatusCode());
 		assertEquals("OK", weatherApi.getStatusDescription());
 	}
-	
+
 	@Test
 	public void test2() {
 		weatherApi.getWeather("Tampa", "TX");
 		assertEquals(404, weatherApi.getStatusCode());
 		assertEquals("Not Found", weatherApi.getStatusDescription());
 	}
-	
+
 	@Test
 	public void test3() {
 		weatherApi.getWeather("--", "--");
@@ -48,5 +48,3 @@ public class Weather {
 		assertEquals("Bad Request", weatherApi.getStatusDescription());
 	}
 }
-
-
